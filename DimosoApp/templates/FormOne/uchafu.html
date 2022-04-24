@@ -1,0 +1,56 @@
+    <center>
+<div style="margin-top: 0px;">
+
+
+     {% if messages %}
+    {% for message in messages %}
+     
+
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    {% endfor %}
+  {% endif %}
+
+    <div style="margin-top: 0px;"class="conta" >
+        <h1 style="font-family: bold;margin-left: 5px;font-family: bold;margin-bottom: 1cm;">Login Here</h1>
+        <div style="margin-left: 5px;" >
+   <form action="" method="POST">
+       {% csrf_token %}
+
+
+   <div class="row">
+            {{login_form.email|as_crispy_field}}
+
+          
+            {{login_form.password|as_crispy_field}}
+
+          </div>
+
+
+
+
+
+
+
+
+       
+
+       {% if login_form.non_field_errors %}
+       {% for err in login_form.non_field_errors %}
+
+       <p style="color: red; font-size: 20px;">{{err}}</p>
+      {% endfor %}
+
+       {% endif %}
+   
+   
+   
+   <button type="submit"class="btn btn-primary btn-md my-0 p" style="margin-top: 1cm;width: 5cm;">Login</button>
+   
+   </form>
+   </div>
+   </div>
+</div>
+</center>

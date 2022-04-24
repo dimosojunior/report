@@ -1,0 +1,87 @@
+
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+  
+    <link href="{% static 'DimosoApp/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <style type="text/css">
+      body{
+       
+
+      }
+
+      table tbody tr td,
+table thead tr th,
+table thead{
+  border-left: 2px solid black;
+  border-right:2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black; 
+}
+    </style>
+</head>
+<body>
+  
+   
+<center>
+
+<h1>Information Report for <span style="color: blue;font-weight: bold;">{{name}}</span></h1>
+
+
+</center>
+
+
+
+
+
+<center>
+  
+<div class="container">
+  
+  
+
+  <center style="background-color: red;border-radius: 20px;">
+    <h1 style="font-size: 20px;font-weight: bold;color: white">{{title}}</h1>
+    <div><p style="color: white;font-size: 18px;font-weight: bold;">{{description}}</p></div>
+  </center>
+
+  <div style="background-color: brown;border: 2px solid blue;border-radius: 10px;color: white">
+  
+  {{body|safe}}<br>
+  </div>
+
+  
+
+  
+
+</div>
+
+</center>
+
+
+
+
+
+
+
+<!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'DimosoApp/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'DimosoApp/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+
+
+ 
+</body>
+</html>

@@ -1,0 +1,262 @@
+{% extends 'DimosoApp/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Seasrch page {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 <style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+    } 
+#name{
+    width: 100%;
+}
+    body{
+        overflow-x: hidden;
+        width: 100%;
+        
+    }
+    a{
+        text-decoration: none;
+    }
+    #testimonials{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+.testimonials{
+    letter-spacing: 1px;
+    margin: 30px 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
+}
+.testimonials-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: white;
+    padding: 10px 20px;
+}
+.testimonials-heading span{
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.testimonials-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+.testimonials-box{
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color:white;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+}
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: black;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: black;
+    font-size: 0.8rem;
+}
+.reviews{
+    color: red;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font-size: 0.9rem;
+    color: black;
+    font-weight: bold;
+}
+
+.testimonial-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+table{
+    background-color: brown;
+    margin-top: 1cm;
+}
+   
+table  tr th,
+table  tr td{
+  border-left: 2px solid black;
+  border-right:2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black; 
+  border: 2px solid blue;
+  border-radius: 10px;
+  font-size: : 25px;
+  color: white;
+  
+        
+}
+
+    </style>
+
+</head>
+<body>
+<center>
+
+<div class="container" style="width: 100%;overflow-x: hidden;">
+	
+	<h1 style="color: green;">Looking for searched student</h1>
+
+	{% if query %}
+
+	<h3 style="color: red;font-weight: bold;">{% with results.count as total_results %}
+	found {{total_results}} student(s)
+	{% endwith %}
+</h3>
+
+
+
+{% for file in results %}
+
+
+
+
+
+<h1>{{file.fname}} {{file.sname}} {{file.lname}} Profile</h1>
+    <div class="reviews" style="">
+
+                
+
+                    {% if file.image %} 
+               
+  <div class="" style="margin-top: 1cm;">
+      <img src="{{file.image.url}}" class="rounded-circle" style="width: 150px;height: 150px;"> 
+  </div> 
+  {% else %}
+  
+  <div class="">
+      <img src="{% static 'DimosoApp/assets/img/icon2.png' %}" style="width: 150px;height: 150px;"> 
+  </div> 
+  {% endif %}
+            </div>
+
+
+<div class="table-responsive text-nowrap">
+  <table class="table">
+  
+    <tr>
+      <th>First Name</th>
+      <td>{{file.fname}}</td>
+  </tr>
+
+  <tr>
+      <th>Second Name</th>
+      <td>{{file.sname}}</td>
+  </tr>
+
+  <tr>
+      <th>Last Name</th>
+      <td>{{file.lname}}</td>
+  </tr>
+
+  <tr>
+      <th>Gender</th>
+      <td>{{file.gender}}</td>
+  </tr>
+
+  <tr>
+      <th>Age</th>
+      <td>{{file.age}}</td>
+  </tr>
+
+  <tr>
+      <th>Class</th>
+      <td>{{file.darasa}}</td>
+  </tr>
+
+   <tr>
+      <th>Action</th>
+      <td>
+           <a href="{% url 'update_form_six_student_eca' file.pk  %}" class="btn btn-primary btn-md my-0 p" type="submit" style="margin-right: 1cm;">Update</a>    
+            
+            
+
+          <a href="{% url 'delete_form_six_student_eca' file.pk  %}" class="btn btn-danger btn-md my-0 p" type="submit">Delete</a> 
+      </td>
+  </tr>
+     
+
+  
+</table>
+</div>
+
+
+
+
+
+
+
+{% empty %}
+<h1>This Student not registered </h1>
+
+{% endfor %}
+
+{% else %}
+<h3>Error in your query</h3>
+	{% endif %}
+
+	
+
+<br> <br>
+<a href="{% url 'all_form_six_students_eca' %}"class="btn btn-primary btn-md my-0 p" type="submit" style="margin-bottom: : 3cm;margin-bottom: 1cm;display: flex;font-weight: bold;font-size: 20px;width: 3cm;">  Go Back </a>	
+</div>
+</center>
+</body>
+</html>
+{% endblock %}

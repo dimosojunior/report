@@ -1,0 +1,244 @@
+{% extends 'DimosoApp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Home {% endblock %}</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+    } 
+#searchi{
+    width: 100%;
+    padding: 15px;
+    border: 3px solid blue;
+    border-radius: 20px;
+}
+    body{
+        overflow-x: hidden;
+        width: 100%;
+     
+}
+    }
+    a{
+        text-decoration: none;
+    }
+   
+
+
+.card img{
+  max-width: 200px;
+  max-height: 200px;
+
+
+}
+
+.card{
+  background-color: #075E54;
+  color: white;
+  border: 2px solid red;
+  border-radius: 15px;
+  
+  margin: 10px 20px;
+  margin-bottom: 3cm;
+  height: 98%;
+}
+
+
+
+
+
+
+    </style>
+
+</head>
+<body style="">
+
+    
+  
+
+
+  <div class="container-fluid" style="margin-bottom: 10px;background-color: white;">
+<!---
+ {% if messages %}
+    {% for message in messages %}
+     
+
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    {% endfor %}
+  {% endif %}
+
+--->
+<center>
+  <h1 style="color: ;margin-top: 10px;">ABOUT STUDENTS REPORT SYSTEM</h1>
+
+</center>
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid" >
+
+  <div class="row" >
+    <div class="col-md-4" >
+
+    <div class="card">
+      <center>
+      <img src="{% static 'DimosoApp/assets/img/1a.jpeg' %}" class="rounded-circle" style="margin-top: 10px;">
+      <h4>Sending Student Results using Email</h4>
+      <p>Admin, or Subject Teacher, or class Teacher can send a student results with other informations  to each of student's parent through Email </p>
+<img src="{% static 'DimosoApp/assets/img/v5.png' %}"  style="margin-top: 5px;width: 100px;height: 100px;">
+
+</center>
+    </div>
+
+</div>
+
+
+
+   <div class="col-md-4">
+
+    <div class="card">
+      <center>
+      <img src="{% static 'DimosoApp/assets/img/1c.jpeg' %}" class="rounded-circle" style="margin-top: 10px;">
+      <h4>Sending Student Results using Normal Text</h4>
+      <p>Admin, or Subject Teacher, or class Teacher can send a student results with other informations  to each of student's parent through Normal Text</p>
+      <img src="{% static 'DimosoApp/assets/img/v1.png' %}"  style="margin-top: 5px;width: 100px;height: 100px;">
+
+</center>
+    </div>
+
+</div>
+
+
+   <div class="col-md-4">
+
+    <div class="card">
+      <center>
+      <img src="{% static 'DimosoApp/assets/img/1d.jpeg' %}" class="rounded-circle" style="margin-top: 10px;">
+      <h4>Storing Students Informations</h4>
+      <p>This system also can store all students reports or final eaxams results, and other informations of each students for all standards from form one up to form six </p>
+      <img src="{% static 'DimosoApp/assets/img/v6.png' %}"  style="margin-top: 5px;width: 100px;height: 100px;">
+
+</center>
+    </div>
+
+</div>
+
+
+
+
+
+
+    
+  </div>
+  
+
+<div style="margin-top: 3cm;">
+  <hr>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'DimosoApp/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'DimosoApp/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+
+
+<script >
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskel",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+      
+
+    ];
+
+   $( "#name" ). autocomplete({
+    source: "",
+  });
+
+
+  } );
+  
+  
+
+</script>
+
+
+</body>
+</html>
+{% endblock %}

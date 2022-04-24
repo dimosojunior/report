@@ -1,0 +1,222 @@
+{% extends 'DimosoApp/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Add student Report {% endblock %}</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style type="text/css">
+      body{
+
+  overflow-x: hidden;
+  background-color: wheat;
+}
+
+
+input{
+  
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid blue;
+}
+.inputi{
+  margin-top: 1cm;
+  width: 90%;
+}
+#name{
+  margin-top: 1cm;
+  width: 90%;
+}
+#phone{
+  margin-top: 1cm;
+  width: 90%;
+}
+label{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+input[type=submit]{
+  width: 6cm;
+  padding: 10px;
+  margin-top: : 1cm;
+  border-radius: 10px;
+  
+}
+
+form textarea{
+  width: 100%;
+  padding: 10px;
+  margin-top: : 1cm;
+  border-radius: 10px;
+  color: red;
+  font-weight: bold;
+  font-size: 22px;
+  
+  
+}
+
+
+
+  .batani{
+        background-color: blue;
+        width: 4cm;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 1cm;">
+   {% if messages %}
+    {% for message in messages %}
+     
+
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    {% endfor %}
+  {% endif %}
+
+
+<a href="{% url 'all_form_five_reports_hgl' %}"class="btn btn-primary btn-md my-0 p" type="submit" style="margin-top: 1cm;margin-bottom: 2cm;width: 4cm;">  Back 
+
+                        </a>
+
+
+
+
+
+<center>
+
+<h1>HGL FORM FIVE STUDENT REPORT</h1>
+
+      
+    <form action="" method="post" enctype="multipart/form-data" style="width: 100%;">
+      {% csrf_token %}
+     
+      
+    <div class="row">
+
+      <div class="col-md-4" >
+        {{form.name.label}} <br>
+        {{form.name}}
+        
+      </div>
+
+      <div class="col-md-4" >
+        {{form.email.label}} <br>
+        {{form.email}}
+        
+      </div>
+
+      <div class="col-md-4" >
+        {{form.phone.label}} <br>
+        {{form.phone}}
+        
+      </div>
+
+     
+    </div>
+
+ <div class="row" style="margin-top: 1cm;">
+     <div class="col-md-12" >
+         {{form.media}}
+         {{form.body.label}} <br> <br>
+        {{form.body}}
+        
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 1cm;">
+     <div class="col-md-12" >
+          {{form.description.label}} <br> <br>
+        {{form.description}}
+        
+      </div>
+    </div>
+
+<hr>
+
+   
+
+
+      
+<center>
+ <button type="submit" class="batani">
+     Submit
+
+
+  </button>
+  </center>
+
+  </form>
+  
+    
+  </center>
+</div>
+
+
+<!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'DimosoApp/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'DimosoApp/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+
+
+<script >
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskel",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+      
+
+    ];
+
+   $( "#name" ). autocomplete({
+    source: "{% url 'search_autoco_form_five_student_hgl' %}",
+  });
+
+
+  } );
+  
+  
+
+</script>
+
+</body>
+</html>
+{% endblock %}

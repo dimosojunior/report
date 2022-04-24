@@ -1,0 +1,251 @@
+{% extends 'DimosoApp/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Add student Report {% endblock %}</title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style type="text/css">
+      body{
+
+  overflow-x: hidden;
+  background-color: ;
+}
+
+
+
+form input{
+  margin-top: 1cm;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid blue;
+  width: 90%;
+
+}
+
+
+input[type=submit]{
+  width: 6cm;
+  padding: 10px;
+  margin-top: : 1cm;
+  border-radius: 10px;
+  
+}
+
+form textarea{
+  width: 100%;
+  padding: 10px;
+  margin-top: : 1cm;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
+  
+  
+}
+
+
+
+  .batani{
+        background-color: blue;
+        width: 4cm;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      .wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 100%;
+  background: #16a085;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  margin-top: 2cm;
+  margin-bottom: 1cm;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  cursor: pointer;
+  width: 100%;
+}
+form .button input:hover{
+  background: #12876f;
+}
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #16a085;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 1cm;">
+   {% if messages %}
+    {% for message in messages %}
+     
+
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    {% endfor %}
+  {% endif %}
+
+
+
+
+
+
+
+
+<center>
+
+
+<div class="wrapper">
+        <div class="title"><span>SENDING INFORMATIONS TO STUDENT'S PARENT</span></div>
+
+      
+    <form action="" method="post" enctype="multipart/form-data" style="width: 100%;">
+      {% csrf_token %}
+     
+      
+    <div class="row">
+
+      <div class="col-md-4" >
+        <h4 style="color: black;font-weight: bold;">{{form.name.label}} </h4><br>
+        {{form.name}}
+        
+      </div>
+
+      <div class="col-md-4" >
+       <h4 style="color: black;font-weight: bold;"> {{form.email.label}} </h4><br>
+        {{form.email}}
+        
+      </div>
+
+      <div class="col-md-4" >
+       <h4 style="color: black;font-weight: bold;"> {{form.phone.label}}</h4> <br>
+        {{form.phone}}
+        
+      </div>
+
+     
+    </div>
+
+ <div class="row" style="margin-top: 1cm;">
+     <div class="col-md-12" >
+         {{form.media}}
+         <h4 style="color: black;font-weight: bold;">{{form.send_through_email.label}}</h4> <br> <br>
+        {{form.send_through_email}}
+        
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 1cm;">
+     <div class="col-md-12" >
+          <h4 style="color: black;font-weight: bold;">{{form.send_through_text.label}} </h4><br> <br>
+        {{form.send_through_text}}
+        
+      </div>
+    </div>
+
+<hr>
+
+   
+
+<div class="row button">
+            <input type="submit" value="Send">
+          </div>
+      
+
+
+  </form>
+  
+    </div>
+  </center>
+</div>
+
+
+<!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'DimosoApp/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'DimosoApp/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+
+
+<script >
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskel",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+      
+
+    ];
+
+   $( "#name" ). autocomplete({
+    source: "{% url 'search_autoco_form_one_student' %}",
+  });
+
+
+  } );
+  
+  
+
+</script>
+
+</body>
+</html>
+{% endblock %}
